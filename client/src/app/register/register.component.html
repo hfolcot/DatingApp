@@ -1,0 +1,33 @@
+<form (ngSubmit)="register()" #registerForm="ngForm">
+  <h2 class="text-center text-primary">Sign Up</h2>
+  <hr />
+  <div class="mb-3 form-floating">
+    <input
+      id="username"
+      type="text"
+      [(ngModel)]="model.username"
+      class="form-control"
+      name="username"
+      placeholder="Username"
+    />
+    <label for="username">Username</label>
+  </div>
+
+  <div class="mb-3 form-floating">
+    <input
+      id="password"
+      type="password"
+      [(ngModel)]="model.password"
+      class="form-control"
+      name="password"
+      placeholder="Password"
+    />
+    <label for="password">Password</label>
+  </div>
+    <div class="form-group text-center">
+      <button class="btn btn-success me-2" type="submit">Register</button>
+      <button class="btn btn-default me-2" type="button" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+</form>

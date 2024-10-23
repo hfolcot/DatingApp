@@ -1,0 +1,4 @@
+.dropdown-toggle, .dropdown-item, .nav-link {
+    cursor: pointer;
+    text-decoration: none;
+}
