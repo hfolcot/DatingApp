@@ -16,8 +16,6 @@ export class RegisterComponent {
 
   model: any = {};
 
-  users = input.required();
-
   cancelRegister = output<void>();
 
   register(): void {
