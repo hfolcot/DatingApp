@@ -35,6 +35,7 @@
 
     @if (currentUser()) {
     <div class="dropdown" dropdown>
+      <img [src]="currentUser()?.photoUrl || 'user.png'" alt="User Photo" class="me-2" />
       <a class="dropdown-toggle text-light" dropdownToggle
         >Welcome {{ currentUser()?.username }}</a
       >
