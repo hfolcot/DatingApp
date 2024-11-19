@@ -1,6 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MembersService } from '../../_services/members.service';
-import { Member } from '../../_models/Member';
 import { MemberCardComponent } from '../member-card/member-card.component';
 
 @Component({
@@ -12,10 +11,9 @@ import { MemberCardComponent } from '../member-card/member-card.component';
 })
 export class MemberListComponent implements OnInit {
   private memberService = inject<MembersService>(MembersService)
-  members: Member[] = this.memberService.members();
+  members = this.memberService.members;
 
   ngOnInit(): void {
-    debugger
     if(!this.members.length) {
       this.loadMembers();
     }
