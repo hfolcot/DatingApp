@@ -7,11 +7,12 @@ import { DatePipe } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { PhotoEditorComponent } from "../photo-editor/photo-editor.component";
+import { TimeagoModule } from 'ngx-timeago';
 
 @Component({
   selector: 'app-member-edit',
   standalone: true,
-  imports: [TabsModule, DatePipe, FormsModule, PhotoEditorComponent],
+  imports: [TabsModule, DatePipe, TimeagoModule, FormsModule, PhotoEditorComponent],
   templateUrl: './member-edit.component.html',
   styleUrl: './member-edit.component.css'
 })
@@ -34,7 +35,7 @@ export class MemberEditComponent implements OnInit {
   }
 
   loadMember(): void {
-    const user = this.accountService.currentUser();
+    const user = this.accountService.currentUser$();
 
     if (!user) {
       return;

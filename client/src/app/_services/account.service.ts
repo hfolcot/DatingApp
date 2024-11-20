@@ -10,8 +10,9 @@ import { environment } from '../../environments/environment';
 export class AccountService {
 
   private http = inject<HttpClient>(HttpClient);
+  private currentUser = signal<User | null>(null);
+  
   baseUrl = environment.apiUrl;
-  currentUser = signal<User | null>(null);
 
   currentUser$ = this.currentUser.asReadonly();
 

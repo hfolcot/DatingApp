@@ -44,7 +44,7 @@ export class PhotoEditorComponent implements OnInit {
   setMainPhoto(photo: Photo): void {
     this.memberService.setMainPhoto(photo).subscribe({
       next: () => {
-        const user = this.accountService.currentUser();
+        const user = this.accountService.currentUser$();
         if (user) {
           user.photoUrl = photo.url;
           this.accountService.setCurrentUser(user);
@@ -65,7 +65,7 @@ export class PhotoEditorComponent implements OnInit {
   initialiseUploader(): void {
     this.uploader = new FileUploader({
       url: this.baseUrl + 'users/add-photo',
-      authToken: 'Bearer ' + this.accountService.currentUser()?.token,
+      authToken: 'Bearer ' + this.accountService.currentUser$()?.token,
       isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
@@ -83,7 +83,7 @@ export class PhotoEditorComponent implements OnInit {
       updatedMember.photos.push(photo);
       
       if(photo.isMain) {
-        const user = this.accountService.currentUser();
+        const user = this.accountService.currentUser$();
         if (user) {
           user.photoUrl = photo.url;
           this.accountService.setCurrentUser(user);
