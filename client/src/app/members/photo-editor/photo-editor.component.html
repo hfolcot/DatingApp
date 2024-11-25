@@ -3,9 +3,14 @@
     @for (photo of member().photos; track photo.id) {
 
         <div class="col-2">
-            <img [src]="photo.url" alt="Photo of user" class="img-thumbnail mb-1" />       
+            <div class="photo-container">
+                <img [src]="photo.url" alt="Photo of user" class="img-thumbnail mb-1" [class.awaiting]="!photo.isApproved" />       
+                @if(!photo.isApproved) {
+                    <span class="awaiting-approval">Awaiting Approval</span>
+                }
+            </div>
             <div class="text-center">
-                <button class="btn btn-sm me-1" [disabled]="photo.isMain" (click)="setMainPhoto(photo)" [ngClass]="photo.isMain ? 'btn-success active' : 'btn-main-success'">Main</button>
+                <button class="btn btn-sm me-1" [disabled]="photo.isMain || !photo.isApproved" (click)="setMainPhoto(photo)" [ngClass]="photo.isMain ? 'btn-success active' : 'btn-main-success'">Main</button>
                 <button class="btn btn-sm btn-danger" [disabled]="photo.isMain" (click)="deletePhoto(photo)"><i class="fa fa-trash"></i></button>
             </div>
         </div>

@@ -1,3 +1,22 @@
 .nv-file-over {
     border: dotted 3px red;
 }
+
+.awaiting {
+    opacity: 0.2;
+}
+
+
+.photo-container {
+    position: relative;
+}
+
+.awaiting-approval {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    color: red;
+    font-size: 12px;
+    text-align: center;
+}
